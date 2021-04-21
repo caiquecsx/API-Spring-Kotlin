@@ -17,8 +17,6 @@ class CadastroPjController(
 ) {
 
     @PostMapping
-    fun cadastrar(@Valid @RequestBody cadastroPJDto: CadastroPJDto){
-
-    }
+    fun cadastrar(@Valid @RequestBody cadastroPJDto: CadastroPJDto){ }
 
 }
