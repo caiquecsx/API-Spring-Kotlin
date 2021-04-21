@@ -4,6 +4,7 @@ import com.caiquecsx.pontointeligente.documents.Funcionario
 import com.caiquecsx.pontointeligente.repositories.FuncionarioRepository
 import com.caiquecsx.pontointeligente.services.FuncionarioService
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository) : FuncionarioService {
@@ -14,8 +15,9 @@ class FuncionarioServiceImpl(val funcionarioRepository: FuncionarioRepository) :
 
     override fun buscarPorEmail(email: String): Funcionario? = funcionarioRepository.findByEmail(email)
 
-    override fun buscarPorId(id: String): Funcionario? {
-        TODO("Not yet implemented")
+    override fun buscarPorId(id: String): Funcionario?{
+        val funcionario: Optional<Funcionario> = funcionarioRepository.findById(id)
+        return funcionario.orElse(null)
     }
 
 }
